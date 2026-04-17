@@ -6,7 +6,7 @@
 !.gitignore
 
 # No ignores la carpeta _site
-!_site/
-!_site/**
+!docs/
+!docs/**
 
 /.quarto/

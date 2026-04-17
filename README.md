@@ -1,8 +1,8 @@
 # SDA — Mensajes secretos, hackers y espías
 
-https://img.shields.io/badge/Quarto-Website-39729E?logo=quarto&logoColor=white](https://quarto.org/)
-https://img.shields.io/badge/Deploy-GitHub%20Pages-222222?logo=githubpages&logoColor=white](https://pages.github.com/)
-https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-blue.svg](https://creativecommons.org/licenses/by-nc-sa/4.0/)
+[https://img.shields.io/badge/Quarto-Website-39729E?logo=quarto&logoColor=white](https://quarto.org/)
+[https://img.shields.io/badge/Deploy-GitHub%20Pages-222222?logo=githubpages&logoColor=white](https://pages.github.com/)
+[https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-blue.svg](https://creativecommons.org/licenses/by-nc-sa/4.0/)
 
 Sitio web educativo desarrollado con **Quarto** para la creación y publicación de materiales interactivos de **matemáticas** y **criptografía**.
 

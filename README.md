@@ -1,9 +1,5 @@
 # SDA — Mensajes secretos, hackers y espías
 
-[https://img.shields.io/badge/Quarto-Website-39729E?logo=quarto&logoColor=white](https://quarto.org/)
-[https://img.shields.io/badge/Deploy-GitHub%20Pages-222222?logo=githubpages&logoColor=white](https://pages.github.com/)
-[https://img.shields.io/badge/License-CC%20BY--NC--SA%204.0-blue.svg](https://creativecommons.org/licenses/by-nc-sa/4.0/)
-
 Sitio web educativo desarrollado con **Quarto** para la creación y publicación de materiales interactivos de **matemáticas** y **criptografía**.
 
 ---
@@ -14,11 +10,11 @@ Sitio web educativo desarrollado con **Quarto** para la creación y publicación
 
 El sitio reúne materiales sobre:
 
-- **coordenadas cartesianas** y representación en el plano,
-- **formas de representar funciones**,
-- **funciones lineales, afines y constantes**,
-- **funciones cuadráticas**,
-- y una **misión final de criptografía** basada en cifrado César y RSA.
+- **Coordenadas cartesianas** y representación en el plano,
+- **Formas de representar funciones**,
+- **Funciones lineales, afines y constantes**,
+- **Funciones cuadráticas**,
+- **Misión final de criptografía** basada en cifrado César y RSA.
 
 La web está construida con **Quarto**, lo que permite trabajar con una estructura clara de documentos `.qmd`, generar páginas HTML de forma reproducible y mantener un flujo de trabajo limpio con Git y GitHub.
 

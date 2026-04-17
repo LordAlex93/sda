@@ -1,0 +1,12 @@
+
+# Ignora todo
+*
+
+# No ignores este propio archivo
+!.gitignore
+
+# No ignores la carpeta _site
+!_site/
+!_site/**
+
+/.quarto/

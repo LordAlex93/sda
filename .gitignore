@@ -4,9 +4,11 @@
 
 # No ignores este propio archivo
 !.gitignore
-
+!README.md
+!LICENSE.md
 # No ignores la carpeta _site
 !docs/
 !docs/**
-
+_site/
+_site/**
 /.quarto/

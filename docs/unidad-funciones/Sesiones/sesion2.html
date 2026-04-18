@@ -356,98 +356,228 @@ La letra del DNI como aplicación
 </div>
 </div>
 <style>
-  .rf-ggb-embed {
+  .rf-ggb-funcion {
     width: 100%;
-    margin: 1rem 0 1.5rem 0;
-    border: 1px solid #d0d7de;
-    border-radius: 12px;
-    overflow: hidden;
-    background: white;
+    max-width: 750px;
+    margin: 1rem auto;
   }
 
-  .rf-ggb-embed__inner {
-    width: 100%;
-    min-height: 720px;
+  .rf-ggb-funcion__label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
   }
 
-  @media (max-width: 900px) {
-    .rf-ggb-embed__inner {
-      min-height: 620px;
-    }
+  .rf-ggb-funcion__row {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 0.8rem;
+  }
+
+  .rf-ggb-funcion__input {
+    flex: 1;
+    min-width: 280px;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+
+  .rf-ggb-funcion__btn {
+    padding: 0.6rem 0.9rem;
+    border: 1px solid #999;
+    border-radius: 8px;
+    background: #f7f7f7;
+    cursor: pointer;
+  }
+
+  .rf-ggb-funcion__applet {
+    width: 100%;
+    max-width: 750px;
+    height: 430px;
+    margin: 0 auto 1rem auto;
   }
 </style>
 
 <script src="https://www.geogebra.org/apps/deployggb.js"></script>
 <script>
 (function () {
-  function getSize(wrapper) {
-    const width = Math.max(320, Math.floor(wrapper.clientWidth || 900));
-    const height = Math.max(620, Math.min(920, Math.round(width * 0.68)));
-    return { width, height };
-  }
-
-  function buildApplet(wrapper) {
-    if (!wrapper || wrapper.dataset.ggbReady === 'true' || typeof window.GGBApplet === 'undefined') return;
+  function buildFunctionApplet(wrapper) {
+    if (!wrapper) return;
+    if (wrapper.dataset.ggbReady === 'true') return;
+    if (typeof window.GGBApplet === 'undefined') return;
     if (wrapper.offsetParent === null) return;
 
-    const inner = document.createElement('div');
-    inner.className = 'rf-ggb-embed__inner';
-    inner.id = 'rf-ggb-' + Math.random().toString(36).slice(2, 10);
-    wrapper.appendChild(inner);
+    const key = wrapper.dataset.key || Math.random().toString(36).slice(2, 10);
+    const placeholder = wrapper.dataset.placeholder || 'y=7x-3';
+    const xmin = Number(wrapper.dataset.xmin ?? -1);
+    const xmax = Number(wrapper.dataset.xmax ?? 6);
+    const ymin = Number(wrapper.dataset.ymin ?? -5);
+    const ymax = Number(wrapper.dataset.ymax ?? 80);
 
-    const size = getSize(wrapper);
+    const inputId = `geo-input-${key}`;
+    const drawBtnId = `geo-btn-dibujar-${key}`;
+    const clearBtnId = `geo-btn-limpiar-${key}`;
+    const viewBtnId = `geo-btn-vista-${key}`;
+    const containerId = `ggb-${key}`;
+
+    wrapper.innerHTML = `
+      <label class="rf-ggb-funcion__label" for="${inputId}">
+        Escribe la función:
+      </label>
+      <div class="rf-ggb-funcion__row">
+        <input
+          id="${inputId}"
+          class="rf-ggb-funcion__input"
+          type="text"
+          placeholder="${placeholder}"
+        />
+        <button id="${drawBtnId}" type="button" class="rf-ggb-funcion__btn">Dibujar</button>
+        <button id="${clearBtnId}" type="button" class="rf-ggb-funcion__btn">Limpiar</button>
+        <button id="${viewBtnId}" type="button" class="rf-ggb-funcion__btn">Reiniciar vista</button>
+      </div>
+      <div id="${containerId}" class="rf-ggb-funcion__applet"></div>
+    `;
+
+    let ggbApi = null;
+
+    function setDefaultView() {
+      if (!ggbApi) return;
+      try { ggbApi.setAxesVisible(1, true, true); } catch (e) {}
+      try { ggbApi.setGridVisible(1, true); } catch (e) {}
+      try { ggbApi.setCoordSystem(xmin, xmax, ymin, ymax); } catch (e) {}
+    }
+
+    function styleObject(name) {
+      if (!ggbApi || !name) return;
+      try { ggbApi.setLabelVisible(name, false); } catch (e) {}
+      try { ggbApi.setColor(name, 30, 60, 120); } catch (e) {}
+      try { ggbApi.setLineThickness(name, 5); } catch (e) {}
+    }
+
+    function clearAllObjects() {
+      if (!ggbApi) return;
+      const objs = ggbApi.getAllObjectNames();
+      for (let i = 0; i < objs.length; i++) {
+        try { ggbApi.deleteObject(objs[i]); } catch (e) {}
+      }
+    }
+
+    function normalizeExpression(expr) {
+      const t = expr.trim();
+      if (!t) return '';
+      if (t.includes('=')) return t;
+      if (t.includes('x')) return 'f(x)=' + t;
+      return t;
+    }
+
+    function drawExpression() {
+      if (!ggbApi) return;
+      const input = document.getElementById(inputId);
+      const raw = input.value.trim();
+      if (!raw) return;
+      const command = normalizeExpression(raw);
+      try {
+        const before = ggbApi.getAllObjectNames();
+        ggbApi.evalCommand(command);
+        const after = ggbApi.getAllObjectNames();
+        for (let i = 0; i < after.length; i++) {
+          if (!before.includes(after[i])) styleObject(after[i]);
+        }
+      } catch (e) {
+        alert(`No se ha podido interpretar la expresión. Prueba con algo como: ${placeholder}`);
+      }
+    }
+
     const params = {
+      id: containerId,
       appName: 'graphing',
-      width: size.width,
-      height: size.height,
-      showToolBar: true,
-      showAlgebraInput: true,
+      width: 750,
+      height: 430,
+      language: 'es',
       showMenuBar: false,
-      showResetIcon: true,
-      showZoomButtons: true,
+      showToolBar: false,
+      showToolBarHelp: false,
+      showAlgebraInput: false,
+      allowStyleBar: false,
+      showResetIcon: false,
+      showZoomButtons: false,
+      showFullscreenButton: true,
+      enableLabelDrags: false,
       enableShiftDragZoom: true,
       enableRightClick: false,
-      showFullscreenButton: true,
-      borderColor: null,
-      language: 'es',
+      errorDialogsActive: false,
+      useBrowserForJS: true,
+      preventFocus: false,
+      clickToLoad: false,
       appletOnLoad: function(api) {
-        try {
-          if (api.setAxesVisible) api.setAxesVisible(true, true);
-          if (api.setGridVisible) api.setGridVisible(true);
-          if (api.setCoordSystem) api.setCoordSystem(-1, 8, -1, 22);
-        } catch (e) {}
+        ggbApi = api;
+        try { api.setPerspective('G'); } catch (e) {}
+        try { api.setPerspective('-Tools'); } catch (e) {}
+        clearAllObjects();
+        setDefaultView();
       }
     };
 
     const applet = new window.GGBApplet(params, true);
-    setTimeout(function () {
-      applet.inject(inner.id);
-      wrapper.dataset.ggbReady = 'true';
-    }, 0);
+    applet.inject(containerId);
+
+    const input = document.getElementById(inputId);
+    const drawBtn = document.getElementById(drawBtnId);
+    const clearBtn = document.getElementById(clearBtnId);
+    const viewBtn = document.getElementById(viewBtnId);
+
+    drawBtn.addEventListener('click', drawExpression);
+    clearBtn.addEventListener('click', function () {
+      clearAllObjects();
+      setDefaultView();
+      input.value = '';
+    });
+    viewBtn.addEventListener('click', function () {
+      setDefaultView();
+    });
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        drawExpression();
+      }
+    });
+
+    wrapper.dataset.ggbReady = 'true';
   }
 
-  function initVisibleApplets(scope) {
-    (scope || document).querySelectorAll('.rf-ggb-embed').forEach(function (wrapper) {
-      buildApplet(wrapper);
+  function initVisibleFunctionApplets(scope) {
+    (scope || document).querySelectorAll('.rf-ggb-funcion').forEach(function (wrapper) {
+      buildFunctionApplet(wrapper);
     });
   }
 
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () {
+      initVisibleFunctionApplets(document);
+    });
+  } else {
+    initVisibleFunctionApplets(document);
+  }
+
   window.addEventListener('load', function () {
-    initVisibleApplets(document);
+    initVisibleFunctionApplets(document);
   });
 
   document.addEventListener('shown.bs.tab', function (event) {
     const target = event.target.getAttribute('data-bs-target') || event.target.getAttribute('href');
     if (!target) return;
     const pane = document.querySelector(target);
-    if (pane) initVisibleApplets(pane);
+    if (pane) initVisibleFunctionApplets(pane);
   });
 })();
 </script>
 <section id="actividad-mensaje-interceptado" class="level2">
 <h2 class="anchored" data-anchor-id="actividad-mensaje-interceptado">Actividad: mensaje interceptado</h2>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Emmy Noether</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Ada Lovelace</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Grace Murray Hopper</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Alan Turing</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false">Elizebeth Smith Friedman</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Emmy Noether</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Ada Lovelace</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Grace Murray Hopper</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Elizebeth Smith Friedman</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p><strong>Misión del grupo Emmy Noether</strong></p>
@@ -512,7 +642,7 @@ Pregunta: mensaje interceptado
 </tbody>
 </table>
 <p><strong>Representa la función en la rejilla siguiente:</strong></p>
-<div class="rf-ggb-embed"></div>
+<div class="rf-ggb-funcion" data-key="emmy" data-placeholder="y=7x-3" data-xmin="-1" data-xmax="6" data-ymin="-5" data-ymax="80"></div>
 <p><strong>Escribid la expresión algebraica de la función:</strong></p>
 <p>…………………………………………………………………………….</p>
 </div>
@@ -581,7 +711,7 @@ Pregunta: mensaje interceptado
 </tbody>
 </table>
 <p><strong>Representa la función en la rejilla siguiente:</strong></p>
-<div class="rf-ggb-embed"></div>
+<div class="rf-ggb-funcion" data-key="ada" data-placeholder="y=7x-3" data-xmin="-1" data-xmax="6" data-ymin="-5" data-ymax="80"></div>
 <p><strong>Escribid la expresión algebraica de la función:</strong></p>
 <p>…………………………………………………………………………….</p>
 </div>
@@ -650,82 +780,13 @@ Pregunta: mensaje interceptado
 </tbody>
 </table>
 <p><strong>Representa la función en la rejilla siguiente:</strong></p>
-<div class="rf-ggb-embed"></div>
+<div class="rf-ggb-funcion" data-key="grace" data-placeholder="y=7x-3" data-xmin="-1" data-xmax="6" data-ymin="-5" data-ymax="80"></div>
 <p><strong>Escribid la expresión algebraica de la función:</strong></p>
 <p>…………………………………………………………………………….</p>
 </div>
 </div>
 </div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
-<p><strong>Misión del grupo Alan Turing</strong></p>
-<p>Nuestro equipo de inteligencia ha interceptado un mensaje, pero no son capaces de descifrarlo y nos han pedido ayuda.</p>
-<p>Vuestra tarea consiste en descifrarlo y resolver la misión matemática que contiene:</p>
-<blockquote class="blockquote">
-<p>HZ GENZFYUFBE QFCUN GUQZQ 20 HZUPNPQF PQ ÑNGQEUN L CUQEPQ 2 HZUPNPQF CBE ONPN YUZHGB PQ HFB. QKCEQFN XN ÑNGQEUN EQFGNZGQ QZ RHZOUBZ PQX GUQYCB.</p>
-</blockquote>
-<!-- Profesorado:
-Mensaje descifrado: Un transmisor espía tiene 20 unidades de batería y pierde 2 unidades por cada minuto de uso. Expresa la batería restante en función del tiempo.
-Función esperada: y = 20 - 2x
-Fila y esperada: 20, 18, 16, 14, 12, 10
--->
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Pregunta: mensaje interceptado
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Escribid aquí el mensaje ya descifrado:</strong></p>
-<p>…………………………………………………………………………….</p>
-<p>…………………………………………………………………………….</p>
-<p>…………………………………………………………………………….</p>
-<p><strong>Responde a las preguntas:</strong></p>
-<ul>
-<li><p><strong>¿Qué situación describe el mensaje?</strong></p>
-<p>…………………………………………………………………………..</p></li>
-<li><p><strong>¿Qué magnitud depende de la otra?</strong></p>
-<p>…………………………………………………………………………..</p></li>
-<li><p><strong>¿Cuál es la variable independiente?</strong></p>
-<p>…………………………………………………………………………..</p></li>
-<li><p><strong>¿Cuál es la variable dependiente?</strong></p>
-<p>…………………………………………………………………………..</p></li>
-</ul>
-<p><strong>Completa la tabla de valores para la función obtenida:</strong></p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th><span class="math inline">\(x\)</span></th>
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(y\)</span></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Representa la función en la rejilla siguiente:</strong></p>
-<div class="rf-ggb-embed"></div>
-<p><strong>Escribid la expresión algebraica de la función:</strong></p>
-<p>…………………………………………………………………………….</p>
-</div>
-</div>
-</div>
-<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
 <p><strong>Misión del grupo Elizebeth Smith Friedman</strong></p>
 <p>Nuestro equipo de inteligencia ha interceptado un mensaje, pero no son capaces de descifrarlo y nos han pedido ayuda.</p>
 <p>Vuestra tarea consiste en descifrarlo y resolver la misión matemática que contiene:</p>
@@ -788,7 +849,7 @@ Pregunta: mensaje interceptado
 </tbody>
 </table>
 <p><strong>Representa la función en la rejilla siguiente:</strong></p>
-<div class="rf-ggb-embed"></div>
+<div class="rf-ggb-funcion" data-key="elizebeth" data-placeholder="y=7x-3" data-xmin="-1" data-xmax="6" data-ymin="-5" data-ymax="80"></div>
 <p><strong>Escribid la expresión algebraica de la función:</strong></p>
 <p>…………………………………………………………………………….</p>
 </div>

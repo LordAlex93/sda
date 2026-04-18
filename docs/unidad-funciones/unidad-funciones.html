@@ -579,17 +579,22 @@ window.Quarto = {
   <li><a href="#concepto-de-función-1" id="toc-concepto-de-función-1" class="nav-link" data-scroll-target="#concepto-de-función-1">Concepto de función</a></li>
   <li><a href="#evaluación-de-funciones" id="toc-evaluación-de-funciones" class="nav-link" data-scroll-target="#evaluación-de-funciones">Evaluación de funciones</a></li>
   <li><a href="#gráfica-de-una-función" id="toc-gráfica-de-una-función" class="nav-link" data-scroll-target="#gráfica-de-una-función">Gráfica de una función</a></li>
+  <li><a href="#vídeo" id="toc-vídeo" class="nav-link" data-scroll-target="#vídeo">Vídeo</a></li>
   <li><a href="#actividad-mensaje-interceptado" id="toc-actividad-mensaje-interceptado" class="nav-link" data-scroll-target="#actividad-mensaje-interceptado">Actividad: mensaje interceptado</a>
   <ul class="collapse">
   <li><a href="#función-lineal" id="toc-función-lineal" class="nav-link" data-scroll-target="#función-lineal">Función lineal</a></li>
   <li><a href="#función-afín" id="toc-función-afín" class="nav-link" data-scroll-target="#función-afín">Función afín</a></li>
   <li><a href="#función-constante" id="toc-función-constante" class="nav-link" data-scroll-target="#función-constante">Función constante</a></li>
   <li><a href="#propiedades-de-las-funciones-lineales" id="toc-propiedades-de-las-funciones-lineales" class="nav-link" data-scroll-target="#propiedades-de-las-funciones-lineales">Propiedades de las funciones lineales</a></li>
+  </ul></li>
+  <li><a href="#vídeo-1" id="toc-vídeo-1" class="nav-link" data-scroll-target="#vídeo-1">Vídeo</a>
+  <ul class="collapse">
   <li><a href="#definiciones-y-propiedades" id="toc-definiciones-y-propiedades" class="nav-link" data-scroll-target="#definiciones-y-propiedades">Definiciones y propiedades</a></li>
   <li><a href="#actividad-energía-potencial-de-una-partícula" id="toc-actividad-energía-potencial-de-una-partícula" class="nav-link" data-scroll-target="#actividad-energía-potencial-de-una-partícula">Actividad: Energía potencial de una partícula</a></li>
   <li><a href="#actividad-trayectoria-de-una-pelota" id="toc-actividad-trayectoria-de-una-pelota" class="nav-link" data-scroll-target="#actividad-trayectoria-de-una-pelota">Actividad: Trayectoria de una pelota</a></li>
   <li><a href="#actividad-contextualizada" id="toc-actividad-contextualizada" class="nav-link" data-scroll-target="#actividad-contextualizada">Actividad contextualizada</a></li>
   </ul></li>
+  <li><a href="#vídeo-2" id="toc-vídeo-2" class="nav-link" data-scroll-target="#vídeo-2">Vídeo</a></li>
   <li><a href="#fase-1.-crear-vuestra-transmisión-secreta" id="toc-fase-1.-crear-vuestra-transmisión-secreta" class="nav-link" data-scroll-target="#fase-1.-crear-vuestra-transmisión-secreta">Fase 1. Crear vuestra transmisión secreta</a>
   <ul class="collapse">
   <li><a href="#paso-1" id="toc-paso-1" class="nav-link" data-scroll-target="#paso-1">Paso 1</a></li>
@@ -651,7 +656,7 @@ window.Quarto = {
     <div>
     <div class="quarto-title-meta-heading">Fecha de publicación</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">17 de abril de 2026</p>
+      <p class="date">18 de abril de 2026</p>
     </div>
   </div>
   
@@ -1123,6 +1128,10 @@ Pregunta
 </script>
 </div>
 </div>
+</section>
+<section id="vídeo" class="level2">
+<h2 class="anchored" data-anchor-id="vídeo">Vídeo</h2>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/f1UeSojLytg?si=gOQWuX5mckLD5wXz" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <p>Las funciones se pueden describir o representar de diferentes formas. Estas son:</p>
 <ul>
 <li><strong>Verbal</strong>: se nos describe una relación con un enunciado.</li>
@@ -1232,91 +1241,221 @@ La letra del DNI como aplicación
 </div>
 </div>
 <style>
-  .rf-ggb-embed {
+  .rf-ggb-funcion {
     width: 100%;
-    margin: 1rem 0 1.5rem 0;
-    border: 1px solid #d0d7de;
-    border-radius: 12px;
-    overflow: hidden;
-    background: white;
+    max-width: 750px;
+    margin: 1rem auto;
   }
 
-  .rf-ggb-embed__inner {
-    width: 100%;
-    min-height: 720px;
+  .rf-ggb-funcion__label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
   }
 
-  @media (max-width: 900px) {
-    .rf-ggb-embed__inner {
-      min-height: 620px;
-    }
+  .rf-ggb-funcion__row {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    align-items: center;
+    margin-bottom: 0.8rem;
+  }
+
+  .rf-ggb-funcion__input {
+    flex: 1;
+    min-width: 280px;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid #bbb;
+    border-radius: 8px;
+    font-size: 1rem;
+  }
+
+  .rf-ggb-funcion__btn {
+    padding: 0.6rem 0.9rem;
+    border: 1px solid #999;
+    border-radius: 8px;
+    background: #f7f7f7;
+    cursor: pointer;
+  }
+
+  .rf-ggb-funcion__applet {
+    width: 100%;
+    max-width: 750px;
+    height: 430px;
+    margin: 0 auto 1rem auto;
   }
 </style>
 
 <script src="https://www.geogebra.org/apps/deployggb.js"></script>
 <script>
 (function () {
-  function getSize(wrapper) {
-    const width = Math.max(320, Math.floor(wrapper.clientWidth || 900));
-    const height = Math.max(620, Math.min(920, Math.round(width * 0.68)));
-    return { width, height };
-  }
-
-  function buildApplet(wrapper) {
-    if (!wrapper || wrapper.dataset.ggbReady === 'true' || typeof window.GGBApplet === 'undefined') return;
+  function buildFunctionApplet(wrapper) {
+    if (!wrapper) return;
+    if (wrapper.dataset.ggbReady === 'true') return;
+    if (typeof window.GGBApplet === 'undefined') return;
     if (wrapper.offsetParent === null) return;
 
-    const inner = document.createElement('div');
-    inner.className = 'rf-ggb-embed__inner';
-    inner.id = 'rf-ggb-' + Math.random().toString(36).slice(2, 10);
-    wrapper.appendChild(inner);
+    const key = wrapper.dataset.key || Math.random().toString(36).slice(2, 10);
+    const placeholder = wrapper.dataset.placeholder || 'y=7x-3';
+    const xmin = Number(wrapper.dataset.xmin ?? -1);
+    const xmax = Number(wrapper.dataset.xmax ?? 6);
+    const ymin = Number(wrapper.dataset.ymin ?? -5);
+    const ymax = Number(wrapper.dataset.ymax ?? 80);
 
-    const size = getSize(wrapper);
+    const inputId = `geo-input-${key}`;
+    const drawBtnId = `geo-btn-dibujar-${key}`;
+    const clearBtnId = `geo-btn-limpiar-${key}`;
+    const viewBtnId = `geo-btn-vista-${key}`;
+    const containerId = `ggb-${key}`;
+
+    wrapper.innerHTML = `
+      <label class="rf-ggb-funcion__label" for="${inputId}">
+        Escribe la función:
+      </label>
+      <div class="rf-ggb-funcion__row">
+        <input
+          id="${inputId}"
+          class="rf-ggb-funcion__input"
+          type="text"
+          placeholder="${placeholder}"
+        />
+        <button id="${drawBtnId}" type="button" class="rf-ggb-funcion__btn">Dibujar</button>
+        <button id="${clearBtnId}" type="button" class="rf-ggb-funcion__btn">Limpiar</button>
+        <button id="${viewBtnId}" type="button" class="rf-ggb-funcion__btn">Reiniciar vista</button>
+      </div>
+      <div id="${containerId}" class="rf-ggb-funcion__applet"></div>
+    `;
+
+    let ggbApi = null;
+
+    function setDefaultView() {
+      if (!ggbApi) return;
+      try { ggbApi.setAxesVisible(1, true, true); } catch (e) {}
+      try { ggbApi.setGridVisible(1, true); } catch (e) {}
+      try { ggbApi.setCoordSystem(xmin, xmax, ymin, ymax); } catch (e) {}
+    }
+
+    function styleObject(name) {
+      if (!ggbApi || !name) return;
+      try { ggbApi.setLabelVisible(name, false); } catch (e) {}
+      try { ggbApi.setColor(name, 30, 60, 120); } catch (e) {}
+      try { ggbApi.setLineThickness(name, 5); } catch (e) {}
+    }
+
+    function clearAllObjects() {
+      if (!ggbApi) return;
+      const objs = ggbApi.getAllObjectNames();
+      for (let i = 0; i < objs.length; i++) {
+        try { ggbApi.deleteObject(objs[i]); } catch (e) {}
+      }
+    }
+
+    function normalizeExpression(expr) {
+      const t = expr.trim();
+      if (!t) return '';
+      if (t.includes('=')) return t;
+      if (t.includes('x')) return 'f(x)=' + t;
+      return t;
+    }
+
+    function drawExpression() {
+      if (!ggbApi) return;
+      const input = document.getElementById(inputId);
+      const raw = input.value.trim();
+      if (!raw) return;
+      const command = normalizeExpression(raw);
+      try {
+        const before = ggbApi.getAllObjectNames();
+        ggbApi.evalCommand(command);
+        const after = ggbApi.getAllObjectNames();
+        for (let i = 0; i < after.length; i++) {
+          if (!before.includes(after[i])) styleObject(after[i]);
+        }
+      } catch (e) {
+        alert(`No se ha podido interpretar la expresión. Prueba con algo como: ${placeholder}`);
+      }
+    }
+
     const params = {
+      id: containerId,
       appName: 'graphing',
-      width: size.width,
-      height: size.height,
-      showToolBar: true,
-      showAlgebraInput: true,
+      width: 750,
+      height: 430,
+      language: 'es',
       showMenuBar: false,
-      showResetIcon: true,
-      showZoomButtons: true,
+      showToolBar: false,
+      showToolBarHelp: false,
+      showAlgebraInput: false,
+      allowStyleBar: false,
+      showResetIcon: false,
+      showZoomButtons: false,
+      showFullscreenButton: true,
+      enableLabelDrags: false,
       enableShiftDragZoom: true,
       enableRightClick: false,
-      showFullscreenButton: true,
-      borderColor: null,
-      language: 'es',
+      errorDialogsActive: false,
+      useBrowserForJS: true,
+      preventFocus: false,
+      clickToLoad: false,
       appletOnLoad: function(api) {
-        try {
-          if (api.setAxesVisible) api.setAxesVisible(true, true);
-          if (api.setGridVisible) api.setGridVisible(true);
-          if (api.setCoordSystem) api.setCoordSystem(-1, 8, -1, 22);
-        } catch (e) {}
+        ggbApi = api;
+        try { api.setPerspective('G'); } catch (e) {}
+        try { api.setPerspective('-Tools'); } catch (e) {}
+        clearAllObjects();
+        setDefaultView();
       }
     };
 
     const applet = new window.GGBApplet(params, true);
-    setTimeout(function () {
-      applet.inject(inner.id);
-      wrapper.dataset.ggbReady = 'true';
-    }, 0);
+    applet.inject(containerId);
+
+    const input = document.getElementById(inputId);
+    const drawBtn = document.getElementById(drawBtnId);
+    const clearBtn = document.getElementById(clearBtnId);
+    const viewBtn = document.getElementById(viewBtnId);
+
+    drawBtn.addEventListener('click', drawExpression);
+    clearBtn.addEventListener('click', function () {
+      clearAllObjects();
+      setDefaultView();
+      input.value = '';
+    });
+    viewBtn.addEventListener('click', function () {
+      setDefaultView();
+    });
+    input.addEventListener('keydown', function (e) {
+      if (e.key === 'Enter') {
+        e.preventDefault();
+        drawExpression();
+      }
+    });
+
+    wrapper.dataset.ggbReady = 'true';
   }
 
-  function initVisibleApplets(scope) {
-    (scope || document).querySelectorAll('.rf-ggb-embed').forEach(function (wrapper) {
-      buildApplet(wrapper);
+  function initVisibleFunctionApplets(scope) {
+    (scope || document).querySelectorAll('.rf-ggb-funcion').forEach(function (wrapper) {
+      buildFunctionApplet(wrapper);
     });
   }
 
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', function () {
+      initVisibleFunctionApplets(document);
+    });
+  } else {
+    initVisibleFunctionApplets(document);
+  }
+
   window.addEventListener('load', function () {
-    initVisibleApplets(document);
+    initVisibleFunctionApplets(document);
   });
 
   document.addEventListener('shown.bs.tab', function (event) {
     const target = event.target.getAttribute('data-bs-target') || event.target.getAttribute('href');
     if (!target) return;
     const pane = document.querySelector(target);
-    if (pane) initVisibleApplets(pane);
+    if (pane) initVisibleFunctionApplets(pane);
   });
 })();
 </script>
@@ -1324,7 +1463,7 @@ La letra del DNI como aplicación
 <section id="actividad-mensaje-interceptado" class="level2">
 <h2 class="anchored" data-anchor-id="actividad-mensaje-interceptado">Actividad: mensaje interceptado</h2>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Emmy Noether</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Ada Lovelace</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Grace Murray Hopper</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Alan Turing</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-5" role="tab" aria-controls="tabset-1-5" aria-selected="false">Elizebeth Smith Friedman</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true">Emmy Noether</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false">Ada Lovelace</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-3" role="tab" aria-controls="tabset-1-3" aria-selected="false">Grace Murray Hopper</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-4" role="tab" aria-controls="tabset-1-4" aria-selected="false">Elizebeth Smith Friedman</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
 <p><strong>Misión del grupo Emmy Noether</strong></p>
@@ -1389,7 +1528,7 @@ Pregunta: mensaje interceptado
 </tbody>
 </table>
 <p><strong>Representa la función en la rejilla siguiente:</strong></p>
-<div class="rf-ggb-embed"></div>
+<div class="rf-ggb-funcion" data-key="emmy" data-placeholder="y=7x-3" data-xmin="-1" data-xmax="6" data-ymin="-5" data-ymax="80"></div>
 <p><strong>Escribid la expresión algebraica de la función:</strong></p>
 <p>…………………………………………………………………………….</p>
 </div>
@@ -1458,7 +1597,7 @@ Pregunta: mensaje interceptado
 </tbody>
 </table>
 <p><strong>Representa la función en la rejilla siguiente:</strong></p>
-<div class="rf-ggb-embed"></div>
+<div class="rf-ggb-funcion" data-key="ada" data-placeholder="y=7x-3" data-xmin="-1" data-xmax="6" data-ymin="-5" data-ymax="80"></div>
 <p><strong>Escribid la expresión algebraica de la función:</strong></p>
 <p>…………………………………………………………………………….</p>
 </div>
@@ -1527,82 +1666,13 @@ Pregunta: mensaje interceptado
 </tbody>
 </table>
 <p><strong>Representa la función en la rejilla siguiente:</strong></p>
-<div class="rf-ggb-embed"></div>
+<div class="rf-ggb-funcion" data-key="grace" data-placeholder="y=7x-3" data-xmin="-1" data-xmax="6" data-ymin="-5" data-ymax="80"></div>
 <p><strong>Escribid la expresión algebraica de la función:</strong></p>
 <p>…………………………………………………………………………….</p>
 </div>
 </div>
 </div>
 <div id="tabset-1-4" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-4-tab">
-<p><strong>Misión del grupo Alan Turing</strong></p>
-<p>Nuestro equipo de inteligencia ha interceptado un mensaje, pero no son capaces de descifrarlo y nos han pedido ayuda.</p>
-<p>Vuestra tarea consiste en descifrarlo y resolver la misión matemática que contiene:</p>
-<blockquote class="blockquote">
-<p>HZ GENZFYUFBE QFCUN GUQZQ 20 HZUPNPQF PQ ÑNGQEUN L CUQEPQ 2 HZUPNPQF CBE ONPN YUZHGB PQ HFB. QKCEQFN XN ÑNGQEUN EQFGNZGQ QZ RHZOUBZ PQX GUQYCB.</p>
-</blockquote>
-<!-- Profesorado:
-Mensaje descifrado: Un transmisor espía tiene 20 unidades de batería y pierde 2 unidades por cada minuto de uso. Expresa la batería restante en función del tiempo.
-Función esperada: y = 20 - 2x
-Fila y esperada: 20, 18, 16, 14, 12, 10
--->
-<div class="callout callout-style-simple callout-note no-icon callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon no-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Pregunta: mensaje interceptado
-</div>
-</div>
-<div class="callout-body-container callout-body">
-<p><strong>Escribid aquí el mensaje ya descifrado:</strong></p>
-<p>…………………………………………………………………………….</p>
-<p>…………………………………………………………………………….</p>
-<p>…………………………………………………………………………….</p>
-<p><strong>Responde a las preguntas:</strong></p>
-<ul>
-<li><p><strong>¿Qué situación describe el mensaje?</strong></p>
-<p>…………………………………………………………………………..</p></li>
-<li><p><strong>¿Qué magnitud depende de la otra?</strong></p>
-<p>…………………………………………………………………………..</p></li>
-<li><p><strong>¿Cuál es la variable independiente?</strong></p>
-<p>…………………………………………………………………………..</p></li>
-<li><p><strong>¿Cuál es la variable dependiente?</strong></p>
-<p>…………………………………………………………………………..</p></li>
-</ul>
-<p><strong>Completa la tabla de valores para la función obtenida:</strong></p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th><span class="math inline">\(x\)</span></th>
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(y\)</span></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p><strong>Representa la función en la rejilla siguiente:</strong></p>
-<div class="rf-ggb-embed"></div>
-<p><strong>Escribid la expresión algebraica de la función:</strong></p>
-<p>…………………………………………………………………………….</p>
-</div>
-</div>
-</div>
-<div id="tabset-1-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-5-tab">
 <p><strong>Misión del grupo Elizebeth Smith Friedman</strong></p>
 <p>Nuestro equipo de inteligencia ha interceptado un mensaje, pero no son capaces de descifrarlo y nos han pedido ayuda.</p>
 <p>Vuestra tarea consiste en descifrarlo y resolver la misión matemática que contiene:</p>
@@ -1665,7 +1735,7 @@ Pregunta: mensaje interceptado
 </tbody>
 </table>
 <p><strong>Representa la función en la rejilla siguiente:</strong></p>
-<div class="rf-ggb-embed"></div>
+<div class="rf-ggb-funcion" data-key="elizebeth" data-placeholder="y=7x-3" data-xmin="-1" data-xmax="6" data-ymin="-5" data-ymax="80"></div>
 <p><strong>Escribid la expresión algebraica de la función:</strong></p>
 <p>…………………………………………………………………………….</p>
 </div>
@@ -3047,6 +3117,10 @@ Pregunta
 </div>
 </div>
 </section>
+</section>
+<section id="vídeo-1" class="level2">
+<h2 class="anchored" data-anchor-id="vídeo-1">Vídeo</h2>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/H4Tk_WPJPNs" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <section id="definiciones-y-propiedades" class="level3">
 <h3 class="anchored" data-anchor-id="definiciones-y-propiedades">Definiciones y propiedades</h3>
 <div class="callout callout-style-default callout-note callout-titled">
@@ -3788,7 +3862,7 @@ Pregunta
 <h3 class="anchored" data-anchor-id="actividad-contextualizada">Actividad contextualizada</h3>
 <script src="https://www.geogebra.org/apps/deployggb.js"></script>
 <div class="tabset-margin-container"></div><div class="panel-tabset">
-<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Emmy Noether</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Ada Lovelace</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">Grace Murray Hopper</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-4" role="tab" aria-controls="tabset-3-4" aria-selected="false">Alan Turing</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-5-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-5" role="tab" aria-controls="tabset-3-5" aria-selected="false">Elizebeth Smith Friedman</a></li></ul>
+<ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true">Emmy Noether</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false">Ada Lovelace</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-3-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-3" role="tab" aria-controls="tabset-3-3" aria-selected="false">Grace Murray Hopper</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-4-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-4" role="tab" aria-controls="tabset-3-4" aria-selected="false">Elizebeth Smith Friedman</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
 <div class="callout callout-style-default callout-caution callout-titled">
@@ -4353,190 +4427,6 @@ Pregunta
 </div>
 </div>
 <div class="callout-body-container callout-body">
-<p><strong>Alan Turing — La señal cifrada</strong></p>
-<p>La intensidad de una señal cifrada que recibe un agente depende de su posición y viene dada por</p>
-<p><span class="math display">\[S(x)=-x^2+6x-5,\]</span></p>
-<p>donde <span class="math inline">\(x\)</span> representa la posición del agente en metros.</p>
-<p>Completa la tabla de valores.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th><span class="math inline">\(x\)</span></th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-<th>4</th>
-<th>5</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><span class="math inline">\(S(x)\)</span></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>Representa la función en la siguiente ventana interactiva de GeoGebra. Ajusta la vista si es necesario e indica qué representa cada eje.</p>
-<div id="geo-ui-contexto-g4" style="max-width: 750px; margin: 1rem auto;">
-  <label for="geo-input-contexto-g4" style="display:block; font-weight:600; margin-bottom:0.4rem;">
-    Escribe la función:
-  </label>
-
-  <div style="display:flex; gap:0.6rem; flex-wrap:wrap; align-items:center; margin-bottom:0.8rem;">
-    <input id="geo-input-contexto-g4" type="text" placeholder="S(x)=-x^2+6x-5" style="flex:1; min-width:280px; padding:0.6rem 0.75rem; border:1px solid #bbb; border-radius:8px; font-size:1rem;">
-    <button id="geo-btn-dibujar-contexto-g4" type="button" style="padding:0.6rem 0.9rem; border:1px solid #999; border-radius:8px; background:#f7f7f7; cursor:pointer;">
-      Dibujar
-    </button>
-    <button id="geo-btn-limpiar-contexto-g4" type="button" style="padding:0.6rem 0.9rem; border:1px solid #999; border-radius:8px; background:#f7f7f7; cursor:pointer;">
-      Limpiar
-    </button>
-    <button id="geo-btn-vista-contexto-g4" type="button" style="padding:0.6rem 0.9rem; border:1px solid #999; border-radius:8px; background:#f7f7f7; cursor:pointer;">
-      Reiniciar vista
-    </button>
-  </div>
-</div>
-
-<div id="ggb-contexto-g4" style="width:100%; max-width:750px; height:430px; margin:0 auto 1rem auto;"></div>
-
-<script>
-(function () {
-  const containerId = "ggb-contexto-g4";
-  const inputId = "geo-input-contexto-g4";
-  const drawBtnId = "geo-btn-dibujar-contexto-g4";
-  const clearBtnId = "geo-btn-limpiar-contexto-g4";
-  const viewBtnId = "geo-btn-vista-contexto-g4";
-
-  const defaultView = { xmin: -1, xmax: 7, ymin: -6, ymax: 6 };
-  const initialCommands = [];
-  let ggbApi = null;
-
-  function setDefaultView() {
-    if (!ggbApi) return;
-    try { ggbApi.setAxesVisible(1, true, true); } catch (e) {}
-    try { ggbApi.setGridVisible(1, true); } catch (e) {}
-    try { ggbApi.setCoordSystem(defaultView.xmin, defaultView.xmax, defaultView.ymin, defaultView.ymax); } catch (e) {}
-  }
-
-  function styleObject(name) {
-    if (!ggbApi || !name) return;
-    try { ggbApi.setLabelVisible(name, false); } catch (e) {}
-    try { ggbApi.setColor(name, 30, 60, 120); } catch (e) {}
-    try { ggbApi.setLineThickness(name, 5); } catch (e) {}
-  }
-
-  function clearAllObjects() {
-    if (!ggbApi) return;
-    const objs = ggbApi.getAllObjectNames();
-    for (let i = 0; i < objs.length; i++) {
-      try { ggbApi.deleteObject(objs[i]); } catch (e) {}
-    }
-  }
-
-  function normalizeExpression(expr) {
-    const t = expr.trim();
-    if (!t) return "";
-    if (t.includes("=")) return t;
-    if (t.includes("x")) return "f(x)=" + t;
-    return t;
-  }
-
-  function drawExpression() {
-    if (!ggbApi) return;
-    const input = document.getElementById(inputId);
-    const raw = input.value.trim();
-    if (!raw) return;
-    const command = normalizeExpression(raw);
-    try {
-      const before = ggbApi.getAllObjectNames();
-      ggbApi.evalCommand(command);
-      const after = ggbApi.getAllObjectNames();
-      for (let i = 0; i < after.length; i++) {
-        if (!before.includes(after[i])) styleObject(after[i]);
-      }
-    } catch (e) {
-      alert("No se ha podido interpretar la expresión. Prueba con algo como: S(x)=-x^2+6x-5");
-    }
-  }
-
-  function injectGeoGebra() {
-    const params = {
-      id: containerId,
-      appName: "graphing",
-      width: 750,
-      height: 430,
-      language: "es",
-      showMenuBar: false,
-      showToolBar: false,
-      showToolBarHelp: false,
-      showAlgebraInput: false,
-      allowStyleBar: false,
-      showResetIcon: false,
-      showZoomButtons: false,
-      showFullscreenButton: true,
-      enableLabelDrags: false,
-      enableShiftDragZoom: true,
-      enableRightClick: false,
-      errorDialogsActive: false,
-      useBrowserForJS: true,
-      preventFocus: false,
-      clickToLoad: false,
-      appletOnLoad: function(api) {
-        ggbApi = api;
-        try { api.setPerspective("G"); } catch (e) {}
-        try { api.setPerspective("-Tools"); } catch (e) {}
-        clearAllObjects();
-        for (let j = 0; j < initialCommands.length; j++) {
-          try { api.evalCommand(initialCommands[j]); } catch (e) {}
-        }
-        setDefaultView();
-      }
-    };
-
-    const applet = new GGBApplet(params, true);
-    applet.inject(containerId);
-  }
-
-  window.addEventListener("DOMContentLoaded", function () {
-    injectGeoGebra();
-    const input = document.getElementById(inputId);
-    const drawBtn = document.getElementById(drawBtnId);
-    const clearBtn = document.getElementById(clearBtnId);
-    const viewBtn = document.getElementById(viewBtnId);
-
-    drawBtn.addEventListener("click", drawExpression);
-    clearBtn.addEventListener("click", function () { clearAllObjects(); setDefaultView(); input.value = ""; });
-    viewBtn.addEventListener("click", function () { setDefaultView(); });
-    input.addEventListener("keydown", function (e) { if (e.key === "Enter") { e.preventDefault(); drawExpression(); } });
-  });
-})();
-</script>
-<p>¿La parábola se abre hacia arriba o hacia abajo? ¿Cómo lo sabes?</p>
-<p>…………………………………………………………………………….</p>
-<p>…………………………………………………………………………….</p>
-<p>¿Cuál es la intensidad máxima de la señal?</p>
-<p>…………………………………………………………………………….</p>
-<p>…………………………………………………………………………….</p>
-<p>¿Qué representa el valor <span class="math inline">\(S(0)\)</span> en este problema?</p>
-<p>…………………………………………………………………………….</p>
-<p>…………………………………………………………………………….</p>
-</div>
-</div>
-</div>
-<div id="tabset-3-5" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-5-tab">
-<div class="callout callout-style-default callout-caution callout-titled">
-<div class="callout-header d-flex align-content-center">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-title-container flex-fill">
-Pregunta
-</div>
-</div>
-<div class="callout-body-container callout-body">
 <p><strong>Elizebeth Smith Friedman — El robot espía y la cápsula secreta</strong></p>
 <p>Un robot espía lanza una cápsula con una contraseña a la azotea de un edificio. La altura de la cápsula (en metros) viene dada por</p>
 <p><span class="math display">\[h(t)=-2t^2+8t,\]</span></p>
@@ -4712,6 +4602,11 @@ Pregunta
 </div>
 </div>
 </div>
+</section>
+</section>
+<section id="vídeo-2" class="level2">
+<h2 class="anchored" data-anchor-id="vídeo-2">Vídeo</h2>
+<div class="quarto-video ratio ratio-16x9"><iframe data-external="1" src="https://www.youtube.com/embed/pEvWe98SglA" title="" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen=""></iframe></div>
 <p>Terminamos las sesiones con una actividad que se realiza en grupos de 4 personas. Cada integrante tendrá uno de estos roles:</p>
 <ul>
 <li><strong>Especialista en criptografía</strong>: persona que conoce los fundamentos matemáticos de la criptografía.</li>
@@ -4725,7 +4620,6 @@ Pregunta
 <li><strong>RSA</strong>: con números pequeños en comparación con los de la criptografía real, pero suficientemente grandes como para trabajar con ordenador.</li>
 </ul>
 <p>Vuestro objetivo para finalizar la misión es <strong>crear</strong>, <strong>firmar</strong>, <strong>enviar</strong>, <strong>interceptar</strong>, <strong>romper</strong> y <strong>verificar</strong> mensajes. Para ello, usaréis un programa en Python ya preparado. Tendréis que completar y modificar solamente algunas partes concretas: la función para cifrar vuestro mensaje con César y un algoritmo de fuerza bruta con el que descubrir el mensaje cifrado de otro grupo. El resto del código os servirá para generar números primos con la criba de Eratóstenes, calcular vuestra clave pública y la clave privada RSA, firmar el mensaje, factorizar el número <span class="math inline">\(n\)</span> del grupo rival y verificar si la firma recibida es correcta.</p>
-</section>
 </section>
 <section id="fase-1.-crear-vuestra-transmisión-secreta" class="level2">
 <h2 class="anchored" data-anchor-id="fase-1.-crear-vuestra-transmisión-secreta">Fase 1. Crear vuestra transmisión secreta</h2>

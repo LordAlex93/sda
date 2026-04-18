@@ -185,14 +185,12 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
-    <div class="quarto-alternate-formats"><h2>Otros formatos</h2><ul><li><a href="index.pdf"><i class="bi bi-file-pdf"></i>PDF</a></li></ul></div></div>
+    
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
@@ -201,7 +199,7 @@ ul.task-list li input[type="checkbox"] {
 
 
 
-<div class="quarto-title-meta">
+<div class="quarto-title-meta column-page">
 
     
   
@@ -213,11 +211,352 @@ ul.task-list li input[type="checkbox"] {
 </header>
 
 
-<p>Esta página contiene una situación de aprendizaje de funciones para la asignatura de matemáticas de 2º de ESO.</p>
-<p>El objetivo es que a lo largo de 12 sesiones el alumnado trabaje conceptos de funciones y su aplicaciones en la vida diaria. El producto final es trabajar con un sistema criptográfico RSA.</p>
-<p>A través de las sesiones iremos trabajando los conceptos más básicos de las funciones, desde una perspectiva algebraica, iremos desarrollando ejemplos de la vida cotidiana que nos llevará a construir el conocimiento necesario para poder trabajar con el producto final.</p>
+<style>
+  :root {
+    --sda-bg-1: #f7f9fc;
+    --sda-bg-2: #eef3ff;
+    --sda-text: #1f2a44;
+    --sda-muted: #53627c;
+    --sda-border: #d8e1ef;
+    --sda-accent: #36507d;
+    --sda-accent-soft: #edf3ff;
+    --sda-shadow: 0 12px 30px rgba(31, 42, 68, 0.08);
+    --sda-radius: 20px;
+  }
+
+  .sda-hero {
+    padding: 4.5rem 1.75rem 3.2rem 1.75rem;
+    margin: 0 0 2.2rem 0;
+    border-radius: 26px;
+    background:
+      radial-gradient(circle at top left, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0) 35%),
+      linear-gradient(135deg, var(--sda-bg-1) 0%, var(--sda-bg-2) 100%);
+    border: 1px solid var(--sda-border);
+    box-shadow: var(--sda-shadow);
+    text-align: center;
+  }
+
+  .sda-hero__eyebrow {
+    display: inline-block;
+    margin-bottom: 0.9rem;
+    padding: 0.45rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid var(--sda-border);
+    background: rgba(255,255,255,0.8);
+    color: var(--sda-accent);
+    font-weight: 700;
+    font-size: 0.9rem;
+    letter-spacing: 0.02em;
+  }
+
+  .sda-hero h1 {
+    color: var(--sda-text);
+    font-size: 2.7rem;
+    line-height: 1.15;
+    margin: 0 0 1rem 0;
+  }
+
+  .sda-hero p {
+    max-width: 920px;
+    margin: 0.35rem auto 0 auto;
+    color: var(--sda-muted);
+    font-size: 1.08rem;
+    line-height: 1.8;
+  }
+
+  .sda-badges {
+    margin-top: 1.4rem;
+    display: flex;
+    gap: 0.75rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .sda-badge {
+    background: white;
+    border: 1px solid var(--sda-border);
+    border-radius: 999px;
+    padding: 0.55rem 0.95rem;
+    font-size: 0.93rem;
+    font-weight: 700;
+    color: var(--sda-accent);
+  }
+
+  .sda-section-title {
+    text-align: center;
+    margin: 2.5rem 0 0.5rem 0;
+    color: var(--sda-text);
+  }
+
+  .sda-section-subtitle {
+    text-align: center;
+    max-width: 860px;
+    margin: 0 auto 1.6rem auto;
+    color: var(--sda-muted);
+    line-height: 1.75;
+  }
+
+  .sda-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+    margin: 1.4rem 0 2.3rem 0;
+  }
+
+  .sda-card-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  .sda-card {
+    height: 100%;
+    background: white;
+    border: 1px solid var(--sda-border);
+    border-radius: var(--sda-radius);
+    padding: 1.3rem 1.25rem 1.1rem 1.25rem;
+    box-shadow: 0 6px 18px rgba(31, 42, 68, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  }
+
+  .sda-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 32px rgba(31, 42, 68, 0.12);
+    border-color: #bccae2;
+  }
+
+  .sda-card__icon {
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--sda-accent-soft);
+    font-size: 1.4rem;
+    margin-bottom: 0.9rem;
+  }
+
+  .sda-card h3 {
+    margin: 0 0 0.55rem 0;
+    color: var(--sda-text);
+    font-size: 1.16rem;
+  }
+
+  .sda-card p {
+    color: var(--sda-muted);
+    line-height: 1.65;
+    margin-bottom: 0.85rem;
+    font-size: 0.98rem;
+  }
+
+  .sda-card__tag {
+    display: inline-block;
+    padding: 0.36rem 0.72rem;
+    border-radius: 999px;
+    background: var(--sda-accent-soft);
+    color: var(--sda-accent);
+    font-size: 0.82rem;
+    font-weight: 800;
+    letter-spacing: 0.02em;
+  }
+
+  .sda-panel {
+    border: 1px solid var(--sda-border);
+    border-radius: var(--sda-radius);
+    background: #fbfcfe;
+    padding: 1.45rem 1.4rem 1.1rem 1.4rem;
+    margin-top: 1.2rem;
+    box-shadow: 0 6px 18px rgba(31, 42, 68, 0.04);
+  }
+
+  .sda-panel h3 {
+    margin-top: 0;
+    color: var(--sda-text);
+  }
+
+  .sda-panel p,
+  .sda-panel li {
+    color: var(--sda-muted);
+    line-height: 1.72;
+  }
+
+  .sda-panel ul {
+    margin-bottom: 0.35rem;
+  }
+
+  .sda-cta {
+    margin-top: 2rem;
+    text-align: center;
+    padding: 1.8rem 1.2rem;
+    border-radius: 22px;
+    border: 1px solid var(--sda-border);
+    background: linear-gradient(135deg, #ffffff 0%, #f5f8ff 100%);
+    box-shadow: 0 6px 18px rgba(31, 42, 68, 0.05);
+  }
+
+  .sda-cta p {
+    margin-bottom: 1rem;
+    color: var(--sda-muted);
+  }
+
+  .sda-cta__buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  .sda-btn {
+    display: inline-block;
+    padding: 0.8rem 1.1rem;
+    border-radius: 12px;
+    text-decoration: none;
+    font-weight: 700;
+    border: 1px solid var(--sda-border);
+    background: white;
+    color: var(--sda-text);
+  }
+
+  .sda-btn--primary {
+    background: var(--sda-text);
+    color: white;
+    border-color: var(--sda-text);
+  }
+
+  .sda-footer {
+    text-align: center;
+    margin-top: 2.2rem;
+    color: var(--sda-muted);
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 700px) {
+    .sda-hero {
+      padding: 3.2rem 1.2rem 2.4rem 1.2rem;
+    }
+
+    .sda-hero h1 {
+      font-size: 2.05rem;
+    }
+  }
+</style>
+<section id="presentación" class="level2 sda-panel">
+<h2 class="anchored" data-anchor-id="presentación">Presentación</h2>
+<p>Esta web está pensada como apoyo para la docencia de la unidad didáctica de funciones de 2.º de ESO, donde vamos a implementar una Situación de Aprendizaje contextualizada en mensajes secretos, hackers y espías.</p>
+<p>El proyecto reúne materiales didácticos de matemáticas, representación gráfica y criptografía, combinando explicación teórica, actividades guiadas e interactividad.</p>
+</section>
+<section id="explora-los-bloques-del-sitio" class="level2">
+<h2 class="anchored" data-anchor-id="explora-los-bloques-del-sitio">Explora los bloques del sitio</h2>
+<div class="sda-section-subtitle">
+<p>Accede a los materiales principales del proyecto y recorre el itinerario formativo desde la representación en el plano hasta la misión final de criptografía.</p>
+</div>
+<div class="sda-grid">
+  <a class="sda-card-link" href="unidad-funciones/Sesiones/sesion1.html">
+    <article class="sda-card">
+      <div class="sda-card__icon">💻</div>
+      <h3 class="anchored">Concepto de función</h3>
+      <p>
+        Explora los conceptos iniciales e ideas intuitivas de función desde una perspectiva algebraica.
+      </p>
+      <span class="sda-card__tag">Conceptos</span>
+    </article>
+  </a>
+  <a class="sda-card-link" href="unidad-funciones/Sesiones/sesion2.html">
+    <article class="sda-card">
+      <div class="sda-card__icon">📈</div>
+      <h3 class="anchored">Representación de funciones</h3>
+      <p>
+        Material para trabajar las formas verbal, tabular, gráfica y simbólica de una función con apoyo interactivo.
+      </p>
+      <span class="sda-card__tag">Funciones</span>
+    </article>
+  </a>
+  <a class="sda-card-link" href="unidad-funciones/Sesiones/sesion3.html">
+    <article class="sda-card">
+      <div class="sda-card__icon">📍</div>
+      <h3 class="anchored">Coordenadas cartesianas</h3>
+      <p>
+        Actividades de localización de puntos, análisis por cuadrantes, desplazamientos y rutas sobre el plano cartesiano.
+      </p>
+      <span class="sda-card__tag">Plano cartesiano</span>
+    </article>
+  </a>
+
+  <a class="sda-card-link" href="unidad-funciones/Sesiones/sesion4.html">
+    <article class="sda-card">
+      <div class="sda-card__icon">📐</div>
+      <h3 class="anchored">Funciones lineales</h3>
+      <p>
+        Recursos sobre funciones lineales, afines y constantes, con interpretación de pendiente y valor inicial.
+      </p>
+      <span class="sda-card__tag">Lineales</span>
+    </article>
+  </a>
+
+  <a class="sda-card-link" href="unidad-funciones/Sesiones/sesion5.html">
+    <article class="sda-card">
+      <div class="sda-card__icon">∪</div>
+      <h3 class="anchored">Funciones cuadráticas</h3>
+      <p>
+        Estudio de parábolas, vértices, sentido de apertura y máximos o mínimos en contextos aplicados.
+      </p>
+      <span class="sda-card__tag">Cuadráticas</span>
+    </article>
+  </a>
+
+  <a class="sda-card-link" href="unidad-funciones/Sesiones/sesion6.html">
+    <article class="sda-card">
+      <div class="sda-card__icon">🔐</div>
+      <h3 class="anchored">Misión final de criptografía</h3>
+      <p>
+        Actividad final en grupo basada en cifrado César y RSA: creación, firma, ruptura y verificación de mensajes.
+      </p>
+      <span class="sda-card__tag">Criptografía</span>
+    </article>
+  </a>
+
+</div>
+</section>
+<section id="enfoque-del-proyecto" class="level2">
+<h2 class="anchored" data-anchor-id="enfoque-del-proyecto">Enfoque del proyecto</h2>
+<section id="aprendizaje-visual-interactivo-y-contextualizado" class="level3 sda-panel">
+<h3 class="anchored" data-anchor-id="aprendizaje-visual-interactivo-y-contextualizado">Aprendizaje visual, interactivo y contextualizado</h3>
+<p>Este sitio está concebido como un espacio de apoyo al aprendizaje en el que se integran:</p>
+<ul>
+<li>Materiales de matemáticas en formato web.</li>
+<li>Actividades interactivas con apoyo visual.</li>
+<li>Recursos incrustados para explorar y representar.</li>
+<li>Propuestas contextualizadas mediante narrativa de misión.</li>
+</ul>
+<p>La organización del contenido permite recorrer bloques sobre plano cartesiano y funciones, con proyección final hacia la criptografía y la comunicación segura.</p>
+</section>
+</section>
+<section id="tecnologías-y-publicación" class="level2">
+<h2 class="anchored" data-anchor-id="tecnologías-y-publicación">Tecnologías y publicación</h2>
+<section id="herramientas-del-sitio" class="level3 sda-panel">
+<h3 class="anchored" data-anchor-id="herramientas-del-sitio">Herramientas del sitio</h3>
+<ul>
+<li><strong>Quarto</strong> para la estructura y publicación del sitio.</li>
+<li><strong>GeoGebra</strong> para la representación matemática interactiva.</li>
+<li><strong>GitHub Pages</strong> para el despliegue web.</li>
+</ul>
+</section>
+<section class="sda-cta">
+  <p>
+    Puedes comenzar por el plano cartesiano, explorar la representación de funciones o acceder directamente a la misión final de criptografía.
+  </p>
+  <div class="sda-cta__buttons">
+    <a class="sda-btn sda-btn--primary" href="unidad-funciones/Sesiones/sesion4.html">Empezar por funciones</a>
+    <a class="sda-btn" href="unidad-funciones/Sesiones/sesion6.html">Ir a la misión final</a>
+  </div>
+</section>
+
+<p class="sda-footer">
+  Proyecto desarrollado por <strong>Alejandro Muñoz Azaustre</strong>.
+</p>
 
 
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">

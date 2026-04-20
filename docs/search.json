@@ -329,6 +329,48 @@
     "text": "Vídeo"
   },
   {
+    "objectID": "unidad-funciones/cuadernos.html",
+    "href": "unidad-funciones/cuadernos.html",
+    "title": "Cuadernos privados",
+    "section": "",
+    "text": "Cuadernos\nSolo visible con contraseña.\n\nCuaderno del Grupo Ada Lovelace\nCuaderno del Grupo Emmy Noether\nCuaderno del Grupo Elizebeth Smith Friedman\nCuaderno del Grupo Grace Murray Hopper"
+  },
+  {
+    "objectID": "Relaciones/Rel1.html",
+    "href": "Relaciones/Rel1.html",
+    "title": "Relación 1",
+    "section": "",
+    "text": "Ejercicio 1\n\n\n\nDefine una función sum_frac(a,b,c,d) que realice la suma de dos fracciones\n\\[\\frac{a}{b} + \\frac{c}{d}\\]\nde la misma forma que la haces en papel y devuelva el par (numerador,denominador) de la fracción suma.\n\n\n\n\n\n\nPista:\n\n\n\n\n\nRealiza los pasos de calcular el mcm de los denominadores y escribir las fracciones con común denominador.\n\n\n\nUtiliza la siguiente función para ver el resultado:\ndef ver_suma_frac(a,b,c,d):\n    num,den = sum_frac(a,b,c,d)\n    return sp.Rational(num,den)\n\n\n\n\n\n\nBonus:\n\n\n\n\n\n¿Se te ocurre cómo adaptar el programa para la resta?\n\n\n\n\\(\\quad\\)\n\n\n\n\n\n\n\n\nEjercicio 2\n\n\n\nDefine una función prod_frac(a,b,c,d) que realice el producto de dos fracciones\n\\[\\frac{a}{b} \\cdot \\frac{c}{d}\\]\nde la misma forma que la haces en papel y devuelva el par (numerador,denominador) de la fracción producto.\nUtiliza la siguiente función para ver el resultado:\ndef ver_prod_frac(a,b,c,d):\n    num,den = prod_frac(a,b,c,d)\n    return sp.Rational(num,den)\n\n\n\n\n\n\nBonus:\n\n\n\n\n\n¿Se te ocurre cómo adaptar el programa para la división?\n\n\n\n\\(\\quad\\)\n\n\n\n\n\n\n\n\nEjercicio 3\n\n\n\nUsando las funciones del Ejercicio 1 y del Ejercicio 2, realiza las siguientes operaciones:\n\n\\(\\dfrac{1}{2} - \\dfrac{3}{5} + \\dfrac{5}{4}\\)\n\\(\\left[ \\dfrac{4}{11} + \\left( \\dfrac{13}{7} - 2 \\right) \\right] \\cdot \\dfrac{3}{2}\\)\n\\(\\left[ 2 - \\left( \\dfrac{3}{8} + \\dfrac{1}{2} \\right) \\right] : \\dfrac{5}{4}\\)\n\n\n\n\n\n\n\n\n\nEjercicio 4\n\n\n\nRealiza una función que te permita calcular la solución de una ecuación de primer grado.\nRecuerda que estas ecuaciones son de la forma:\n\\[a\\,x+b=0\\]\n\n\n\n\n\n\nBonus:\n\n\n\n\n\n¿Se te ocurre cómo controlar si no tiene solución o si tiene infinitas soluciones?\n\n\n\n\\(\\quad\\)\n\n\n\n\n\n\n\n\nEjercicio 5\n\n\n\nRealiza una función que te permita calcular la solución de una ecuación de segundo grado.\nRecuerda que estas ecuaciones son de la forma:\n\\[a\\,x^2+b\\,x+c=0\\]\nA su vez, recuerda que para hallar una raíz cuadrada, tienes que usar la función sp.sqrt().\n\n\n\n\n\n\nBonus:\n\n\n\n\n\n¿Se te ocurre cómo controlar si no tiene solución?\n\n\n\n\\(\\quad\\)"
+  },
+  {
+    "objectID": "LICENSE.html",
+    "href": "LICENSE.html",
+    "title": "",
+    "section": "",
+    "text": "Código"
+  },
+  {
+    "objectID": "LICENSE.html#resumen",
+    "href": "LICENSE.html#resumen",
+    "title": "",
+    "section": "Resumen",
+    "text": "Resumen\nUsted es libre de:\n\nCompartir — copiar y redistribuir el material en cualquier medio o formato.\nAdaptar — remezclar, transformar y construir a partir del material.\n\nBajo las condiciones siguientes:\n\nAtribución — Debe dar crédito de manera adecuada, proporcionar un enlace a la licencia e indicar si se han realizado cambios.\nNoComercial — No puede utilizar el material con fines comerciales.\nCompartirIgual — Si remezcla, transforma o crea a partir del material, debe distribuir sus aportaciones bajo la misma licencia."
+  },
+  {
+    "objectID": "LICENSE.html#enlace-oficial-de-la-licencia",
+    "href": "LICENSE.html#enlace-oficial-de-la-licencia",
+    "title": "",
+    "section": "Enlace oficial de la licencia",
+    "text": "Enlace oficial de la licencia\n\nLicencia (resumen legible): https://creativecommons.org/licenses/by-nc-sa/4.0/\nCódigo legal oficial: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.es"
+  },
+  {
+    "objectID": "LICENSE.html#nota-sobre-el-código-fuente",
+    "href": "LICENSE.html#nota-sobre-el-código-fuente",
+    "title": "",
+    "section": "Nota sobre el código fuente",
+    "text": "Nota sobre el código fuente\nLas licencias Creative Commons están pensadas principalmente para contenidos y documentación. Si este repositorio incorpora código fuente o scripts, dichos elementos pueden requerir una licencia específica de software independiente."
+  },
+  {
     "objectID": "unidad-funciones/unidad-funciones.html",
     "href": "unidad-funciones/unidad-funciones.html",
     "title": "Misión final: Operación Turing",
@@ -481,41 +523,6 @@
     "title": "Misión final: Operación Turing",
     "section": "",
     "text": "Nota\n\n\n\n\n¿Qué decisión matemática fue la más importante al elegir vuestros parámetros RSA?\n¿Qué parte del cifrado César os resultó más sencilla?\n¿Qué dificultades encontrasteis al romper el mensaje del otro grupo?\n¿Cómo os habéis repartido el trabajo?"
-  },
-  {
-    "objectID": "LICENSE.html",
-    "href": "LICENSE.html",
-    "title": "",
-    "section": "",
-    "text": "Código"
-  },
-  {
-    "objectID": "LICENSE.html#resumen",
-    "href": "LICENSE.html#resumen",
-    "title": "",
-    "section": "Resumen",
-    "text": "Resumen\nUsted es libre de:\n\nCompartir — copiar y redistribuir el material en cualquier medio o formato.\nAdaptar — remezclar, transformar y construir a partir del material.\n\nBajo las condiciones siguientes:\n\nAtribución — Debe dar crédito de manera adecuada, proporcionar un enlace a la licencia e indicar si se han realizado cambios.\nNoComercial — No puede utilizar el material con fines comerciales.\nCompartirIgual — Si remezcla, transforma o crea a partir del material, debe distribuir sus aportaciones bajo la misma licencia."
-  },
-  {
-    "objectID": "LICENSE.html#enlace-oficial-de-la-licencia",
-    "href": "LICENSE.html#enlace-oficial-de-la-licencia",
-    "title": "",
-    "section": "Enlace oficial de la licencia",
-    "text": "Enlace oficial de la licencia\n\nLicencia (resumen legible): https://creativecommons.org/licenses/by-nc-sa/4.0/\nCódigo legal oficial: https://creativecommons.org/licenses/by-nc-sa/4.0/legalcode.es"
-  },
-  {
-    "objectID": "LICENSE.html#nota-sobre-el-código-fuente",
-    "href": "LICENSE.html#nota-sobre-el-código-fuente",
-    "title": "",
-    "section": "Nota sobre el código fuente",
-    "text": "Nota sobre el código fuente\nLas licencias Creative Commons están pensadas principalmente para contenidos y documentación. Si este repositorio incorpora código fuente o scripts, dichos elementos pueden requerir una licencia específica de software independiente."
-  },
-  {
-    "objectID": "Relaciones/Rel1.html",
-    "href": "Relaciones/Rel1.html",
-    "title": "Relación 1",
-    "section": "",
-    "text": "Ejercicio 1\n\n\n\nDefine una función sum_frac(a,b,c,d) que realice la suma de dos fracciones\n\\[\\frac{a}{b} + \\frac{c}{d}\\]\nde la misma forma que la haces en papel y devuelva el par (numerador,denominador) de la fracción suma.\n\n\n\n\n\n\nPista:\n\n\n\n\n\nRealiza los pasos de calcular el mcm de los denominadores y escribir las fracciones con común denominador.\n\n\n\nUtiliza la siguiente función para ver el resultado:\ndef ver_suma_frac(a,b,c,d):\n    num,den = sum_frac(a,b,c,d)\n    return sp.Rational(num,den)\n\n\n\n\n\n\nBonus:\n\n\n\n\n\n¿Se te ocurre cómo adaptar el programa para la resta?\n\n\n\n\\(\\quad\\)\n\n\n\n\n\n\n\n\nEjercicio 2\n\n\n\nDefine una función prod_frac(a,b,c,d) que realice el producto de dos fracciones\n\\[\\frac{a}{b} \\cdot \\frac{c}{d}\\]\nde la misma forma que la haces en papel y devuelva el par (numerador,denominador) de la fracción producto.\nUtiliza la siguiente función para ver el resultado:\ndef ver_prod_frac(a,b,c,d):\n    num,den = prod_frac(a,b,c,d)\n    return sp.Rational(num,den)\n\n\n\n\n\n\nBonus:\n\n\n\n\n\n¿Se te ocurre cómo adaptar el programa para la división?\n\n\n\n\\(\\quad\\)\n\n\n\n\n\n\n\n\nEjercicio 3\n\n\n\nUsando las funciones del Ejercicio 1 y del Ejercicio 2, realiza las siguientes operaciones:\n\n\\(\\dfrac{1}{2} - \\dfrac{3}{5} + \\dfrac{5}{4}\\)\n\\(\\left[ \\dfrac{4}{11} + \\left( \\dfrac{13}{7} - 2 \\right) \\right] \\cdot \\dfrac{3}{2}\\)\n\\(\\left[ 2 - \\left( \\dfrac{3}{8} + \\dfrac{1}{2} \\right) \\right] : \\dfrac{5}{4}\\)\n\n\n\n\n\n\n\n\n\nEjercicio 4\n\n\n\nRealiza una función que te permita calcular la solución de una ecuación de primer grado.\nRecuerda que estas ecuaciones son de la forma:\n\\[a\\,x+b=0\\]\n\n\n\n\n\n\nBonus:\n\n\n\n\n\n¿Se te ocurre cómo controlar si no tiene solución o si tiene infinitas soluciones?\n\n\n\n\\(\\quad\\)\n\n\n\n\n\n\n\n\nEjercicio 5\n\n\n\nRealiza una función que te permita calcular la solución de una ecuación de segundo grado.\nRecuerda que estas ecuaciones son de la forma:\n\\[a\\,x^2+b\\,x+c=0\\]\nA su vez, recuerda que para hallar una raíz cuadrada, tienes que usar la función sp.sqrt().\n\n\n\n\n\n\nBonus:\n\n\n\n\n\n¿Se te ocurre cómo controlar si no tiene solución?\n\n\n\n\\(\\quad\\)"
   },
   {
     "objectID": "unidad-funciones/Sesiones/sesion4.html",
